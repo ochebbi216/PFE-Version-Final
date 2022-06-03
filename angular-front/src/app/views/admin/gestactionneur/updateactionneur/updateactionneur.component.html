@@ -1,0 +1,53 @@
+<br>
+<div  class=" container" style="width: 70%;">
+<table *ngIf="dataObject" class="table align-items-center " >
+    <thead class="table-light align-items-center" >
+        <tr>
+            
+            <th colspan="2" class="text-center">Détails Actionneur</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nom</td>
+            <td>{{dataObject.Nom}}</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>{{dataObject.type}}</td>
+        </tr>
+        <tr>
+            <td>Numéro Actionneur</td>
+            <td>{{dataObject.numactionneur}}</td>
+        </tr>
+        <tr>
+            <td>Valeur</td>
+            <td>
+                <div *ngIf="dataObject.valeur; else nonact">
+                    <strong style="color:rgb(12, 207, 12) ;">On</strong> 
+                </div>
+                <ng-template #nonact>
+                   <strong style="color:rgb(242, 44, 44);">Off</strong> 
+                </ng-template>
+                </td>
+        </tr>
+        <tr>
+            <td>Nom D'utilisateur</td>
+            <td>{{dataObject.nomUtilisateur}}</td>
+        </tr>
+        <tr>
+            <td>Nom Du Passerelle</td>
+            <td>{{dataObject.nomPasserelle}}</td>
+        </tr>
+        <tr>
+            <td>Date et heure</td>
+            <td>{{dataObject.date| date:'dd , MM , y, HH:mm:ss'}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>

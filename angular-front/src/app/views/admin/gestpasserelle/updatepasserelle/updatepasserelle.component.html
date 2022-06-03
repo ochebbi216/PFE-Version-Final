@@ -1,0 +1,83 @@
+<!-- <div class="justify-content-center">
+<h4 class="text-center"> user details</h4>
+<br>
+<ul *ngIf="dataObject">
+    <li>Nom : {{dataObject.Nom}}</li>
+    <li>Description : {{dataObject.Description}}</li>
+    <li>NumeroUtilisateur : {{dataObject.NumeroUtilisateur}}</li>
+    <li>GPSLong : {{dataObject.GPSLong}}</li>
+    <li>GPSLat : {{dataObject.GPSLat}}</li>
+    <li>Sensor1 : {{dataObject.Sensor1}}</li>
+    <li>Sensor2 : {{dataObject.Sensor2}}</li>
+    <li>Sensor3 : {{dataObject.Sensor3}}</li>
+    <li>Sensor4 : {{dataObject.Sensor4}}</li>
+    <li>Sensor5 : {{dataObject.Sensor5}}</li>
+    <li>Date et heure : {{dataObject.Datetime}}</li>
+
+
+</ul>
+</div> -->
+<br>
+<div  class=" container" style="width: 70%;">
+<table *ngIf="dataObject" class="table align-items-center " >
+    <thead class="table-light align-items-center" >
+        <tr>
+            
+            <th colspan="2" class="text-center">datails passerelle</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nom</td>
+            <td>{{dataObject.Nom}}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>{{dataObject.Description}}</td>
+        </tr>
+        <tr>
+            <td>Nom D'utilisateur</td>
+            <td>{{dataObject.nomUtilisateur}}</td>
+        </tr>
+        <tr>
+            <td>GPSLong</td>
+            <td>{{dataObject.GPSLong}}</td>
+        </tr>
+        <tr>
+            <td>GPSLat</td>
+            <td>{{dataObject.GPSLat}}</td>
+        </tr>
+        <!-- <tr>
+            <td>Sensor 1</td>
+            <td>{{dataObject.Sensor1}}</td>
+        </tr>
+        <tr>
+            <td>Sensor 2</td>
+            <td>{{dataObject.Sensor2}}</td>
+        </tr>
+        <tr>
+            <td>Sensor 3</td>
+            <td>{{dataObject.Sensor3}}</td>
+        </tr>
+        <tr>
+            <td>Sensor 4</td>
+            <td>{{dataObject.Sensor4}}</td>
+        </tr>
+        <tr>
+            <td>Sensor 5</td>
+            <td>{{dataObject.Sensor5}}</td>
+        </tr> -->
+        <tr>
+            <td>Date et heure</td>
+            <td>{{dataObject.Date| date:'dd , MM , y, HH:mm:ss'}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<div class="full" id="map"></div>
+
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>
+

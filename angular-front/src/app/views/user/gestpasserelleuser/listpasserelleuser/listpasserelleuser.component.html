@@ -1,0 +1,162 @@
+
+
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a routerLink="/user/home">Tableau De Bord</a></li>
+                    
+                    <li class="breadcrumb-item active">Gestion Du Passerelles</li>
+                </ol>
+            </div>
+            <h4 class="page-title">Liste Des Passerelles  </h4>
+        </div>
+    </div>
+  </div> 
+
+  <br>
+
+  <div class="tab-content">
+    <div class="tab-pane show active" id="basic-datatable-preview">
+        <button  (click)="downloadPDF()" type="button"  class="btn btn-outline-primary" > Télécharger en pdf</button>
+
+        <button class="btn btn-primary col-2 " routerLink="/user/ajouterpasserelle" id="right" >   Ajouter une passerelle</button>
+
+        <div style="padding:10px;"></div>
+        <div id="content" #content>
+        <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-bordered" >
+          <thead class="table-info">
+            <tr class="text-center">
+                    <th>Nom</th>
+                    <!-- <th>Description</th> -->
+                    <th>Nom D'utilisateur</th>
+                    <th>GPSLong</th>
+                    <th>GPSLat</th>
+                    <!-- <th>Sensor1</th> -->
+                    <!-- <th>Sensor2</th>
+                    <th>Sensor3</th>
+                    <th>Sensor4</th>
+                    <th>Sensor5</th> -->
+                    <th>Date</th>
+                  
+                    <th>option</th>
+               
+                </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of users ">
+
+              <tr class="text-center" *ngIf="item.nomUtilisateur===username " >
+                    <td>{{item.Nom}} </td>
+                    <!-- <td>{{item.Description}} </td> -->
+                    <td>{{item.nomUtilisateur}} </td>
+                    <td>{{item.GPSLong}} </td>
+                    <td>{{item.GPSLat}} </td>
+                    <!-- <td>{{item.Sensor1}} </td> -->
+                    <!-- <td>{{item.Sensor2}} </td>
+                    <td>{{item.Sensor3}} </td>
+                    <td>{{item.Sensor4}} </td>
+                    <td>{{item.Sensor5}} </td> -->
+                    <td>{{item.Date| date:'dd , MM , y, HH:mm:ss'}} </td>
+  
+                    <td>
+                      <!-- <button class="btn btn-info m-1 " (click)="getdata(item.Nom,item.Description,item.nomUtilisateur,item.GPSLong,item.GPSLat,item.Sensor1,item.Date,item._id)"  data-bs-toggle="modal" data-bs-target="#login-modal">Modifier</button> -->
+                      <span class="edit" [routerLink]="['/user/updatepasserelle/', item._id]">
+                        <button type="button" class="btn btn-info m-1">Modifier</button>
+                      </span>
+                        <button class="btn btn-danger m-1 " (click)="delete(item._id)"  >Supprimer</button>   
+                        <button class="btn btn-warning m-1" (click)="details(item._id)"> Détails</button> 
+                       
+                    </td>
+                </tr>
+               
+              </ng-container>
+                </tbody>
+        </table>
+        </div>
+    </div>
+  </div> 
+  
+  <!-- <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <div class="text-center mt-2 mb-4">
+                      
+                  </div>
+  
+                  <form #f="ngForm" (ngSubmit)="updatenewupas(f)">
+  
+                    <div class="mb-3">
+              
+                      <label for="1">Nom</label>
+                      <input type="text" class="form-control" placeholder="firstName" id="1" [(ngModel)]="passerelle.Nom" required name="firstname" #firstname="ngModel" ngModel minlength="2" maxlength="20">
+                    </div>
+                   
+                    <div class="mb-3">
+                        <label for="2">Description</label>
+                        <angular-editor  class="from-control " id="2" [config]="editorConfig" [placeholder]="'Entrer un description...'"  [(ngModel)]="passerelle.Description"></angular-editor>
+                      </div>
+                    
+                      <div class="mb-3">
+                        <label for="3">Nom Utilisateur</label>
+                        <input type="text" class="form-control" placeholder="NumeroUtilisateur" id="3" [(ngModel)]="passerelle.nomUtilisateur"  required name="NumeroUtilisateur" #NumeroUtilisateur="ngModel" ngModel>
+                      </div>
+     
+                      <div class="mb-3">
+                        <label for="4">GPSLong</label>
+                        <input type="number" class="form-control" [(ngModel)]="passerelle.GPSLong" id="4"  name="GPSLong" #GPSLong="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="5">GPSLat</label>
+                        <input type="number" class="form-control" [(ngModel)]="passerelle.GPSLong" id="5"  name="GPSLat" #GPSLat="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="6">Sensor 1</label>
+                        <input type="number" class="form-control" [(ngModel)]="passerelle.Sensor1" id="6" name="Sensor1" #Sensor1="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="7">Sensor 2</label>
+                        <input type="number" class="form-control" [(ngModel)]="passerelle.Sensor2" id="7"  name="Sensor2" #Sensor2="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="8">Senso r3</label>
+                        <input type="number" class="form-control"  [(ngModel)]="passerelle.Sensor3" id="8"  name="Sensor3" #Sensor3="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="9">Sensor 4</label>
+                        <input type="number" class="form-control"  [(ngModel)]="passerelle.Sensor4" id="9"  name="Sensor4" #Sensor4="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="10">Sensor 5</label>
+                        <input type="number" class="form-control"  [(ngModel)]="passerelle.Sensor5" id="10" name="Sensor5" #Sensor5="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="11">Date</label>
+                        <input type="datetime-local" class="form-control"  [(ngModel)]="passerelle.Date" id="11"  name="Date" #Date="ngModel" ngModel>
+  
+                      </div>
+                      
+                      <div class="text-center">
+                      <button  class="btn btn-primary" data-bs-dismiss="modal" >save changes </button>
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                
+                 
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div> 
+      </div>  
+  </div> -->

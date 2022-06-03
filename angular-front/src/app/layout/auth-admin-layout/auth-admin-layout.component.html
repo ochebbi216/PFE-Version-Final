@@ -1,0 +1,97 @@
+<head>
+
+    <title>Admin - Login</title>
+
+</head>
+<div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xxl-4 col-lg-5">
+                <div class="card">
+
+                    <!-- Logo -->
+                  
+
+                    <div class="card-body p-4">
+                        
+                        <div class="text-center w-75 m-auto">
+                            <h4 class="text-dark-50 text-center pb-0 fw-bold">
+                                Espace Administration</h4>
+                            <p class="text-muted mb-4">Entrez votre adresse e-mail et votre mot de passe pour accéder au panneau d'administration.</p>
+                        </div>
+
+                        
+                        <form (ngSubmit)="onLoginSubmit()" #loginForm="ngForm">
+                            <div class="mb-3">
+                                <label for="email">Adresse Email:</label>
+                                <input type="email" class="form-control" placeholder="Enter your email address" id="email" required email [(ngModel)]="loginData.email" name="email" #email="ngModel">
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                  <div *ngIf="email.errors.required">Adresse Email est obligatoire</div>
+                                  <div *ngIf="email.errors.email">Ce n'est pas un format d'adresse e-mail valide.</div>
+                                </div>
+                              </div>
+                              <div class="mb-3">
+                                <!-- <a href="#" class="text-muted float-end"><small>Mot De Passe Oublié?</small></a> -->
+                                <label for="password">Mot De Passe:</label>
+                                <div class="input-group input-group-merge">
+                                <input matInput [type]="hide ? 'password' : 'text'" type="password" class="form-control" placeholder="Enter your password" id="password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [(ngModel)]="loginData.password" name="password" #password="ngModel">
+                                <div style= "padding: 2px 10px;" class="input-group-text" data-password="false">
+                                    <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" ><mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></span>
+                                </div></div>
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                                  <div *ngIf="password.errors.required">Mot De Passe est obligatoire.</div>
+                                </div>
+                            </div>
+                            <div class="mb-3 mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="checkbox-signin" >
+                                    <label class="form-check-label" for="checkbox-signin">
+                                        Souvenez de moi</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 mb-0 text-center">
+                            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">S'identifier</button>
+                            </div>
+                         
+                          </form>
+                            <!-- <div class="mb-3">
+                                <label for="emailaddress" class="form-label">Email address</label>
+                                <input [(ngModel)]="admin.email" class="form-control" type="text" id="emailaddress"  placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                
+                                <label for="password" class="form-label">Password</label>
+                                <input [(ngModel)]="admin.password" type="password" id="password" class="form-control" placeholder="Enter your password">
+                               
+                            </div>
+                            <div class="mb-3 mb-0 text-center">
+                                <button (click)="login()" class="btn btn-primary" > Log In </button>
+                            </div> -->
+
+                        
+                    </div> <!-- end card-body -->
+                </div>
+                <!-- end card -->
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <p class="text-muted">
+                            <!-- vous n'avez pas de compte ? <a routerLink="/admin/register" class="text-muted ms-1"><b>Inscription </b></a></p> -->
+                    </div> <!-- end col-->
+                </div>
+                
+                <!-- end row -->
+
+            </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+
+<!-- end page -->
+
+<!-- <footer class="footer footer-alt">
+     2022
+</footer> -->

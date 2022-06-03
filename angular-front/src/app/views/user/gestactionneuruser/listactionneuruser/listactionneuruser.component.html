@@ -1,0 +1,147 @@
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a routerLink="/user/home">Tableau De Bord</a></li>
+                    
+                    <li class="breadcrumb-item active">Gestion D'actionneurs</li>
+                </ol>
+            </div>
+            <h4 class="page-title"> Liste Des Actionneurs  </h4>
+        </div>
+    </div>
+  </div> 
+   <div *ngIf="v" class="alert alert-warning text-center container" style="width:95% ;" role="alert">
+    Il n'y a pas encore d'actionneur ajouté !
+   </div>
+   
+
+  <div class="tab-content">
+    <div class="tab-pane show active" id="basic-datatable-preview">
+      <button (click)="downloadPDF()" type="button"  class="btn btn-outline-primary" > Télécharger en pdf</button>
+
+        <button class="btn btn-primary col-2 " routerLink="/user/ajouteractionneur" id="right" >   Ajout</button>
+        <div style="padding:10px;"></div>
+        <div id="content" #content>
+        <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-bordered"  >
+          <thead class="table-info">
+            <tr class="text-center">
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Numero Actionneur</th>
+                    <th>Etat</th>
+                    <th>Nom D'utilisateur</th>
+                    <th>Nom De Passerelle</th>
+                    <th>Date</th>
+                    <th>option</th>
+                </tr>
+            </thead>
+        
+        
+            <tbody >
+              <ng-container *ngFor="let item of acts">
+                <!-- || item.length>0 ;else v" -->
+                <tr class="text-center" *ngIf="item.nomUtilisateur==username " >
+                    <td>{{item.nom}} </td>
+                    <td>{{item.type}} </td>
+                    <td>{{item.numactionneur}} </td>
+                    <td>
+                      <div *ngIf="item.valeur; else nonact">
+                        <div class="alert alert-success" role="alert">
+                          <i class="dripicons-checkmark me-2"></i> <strong>On</strong> 
+                      </div>
+                      </div>
+                
+                      <ng-template #nonact>
+                        <div class="alert alert-danger" role="alert">
+                          <i class="dripicons-wrong me-2"></i><strong>Off</strong> 
+                      </div>
+                      </ng-template>
+                  </td>
+                    <td>{{item.nomUtilisateur}} </td>
+                    <td>{{item.nomPasserelle}} </td>
+                    <td>{{item.date| date:'dd , MM , y, HH:mm:ss'}} </td>
+  
+                    <td>
+                      <span class="edit" [routerLink]="['/user/updateactionneur/', item._id]">
+                        <button type="button" class="btn btn-info m-1">Modifier</button>
+                      </span>
+                      <button class="btn btn-danger m-1 " (click)="delete(item._id)"  >Supprimer</button>   
+                      <button class="btn btn-warning m-1" (click)="details(item._id)"> Détails</button>  
+                       
+                    </td>
+                  
+                </tr>
+              </ng-container>
+                </tbody>
+        </table>
+        </div>
+    </div>
+  </div> 
+  
+  <!-- <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <div class="text-center mt-2 mb-4">
+                      
+                  </div>
+  
+                  <form #f="ngForm" (ngSubmit)="updatenewuser(f)">
+  
+                    <div class="mb-3">
+              
+                      <label for="exampleFormControlInput1">nom</label>
+                      <input type="text" class="form-control" placeholder="firstName" [(ngModel)]="act.nom" required name="nom" #firstname="ngModel" ngModel minlength="2" maxlength="20">
+                    </div>
+                   
+                    <div class="mb-3">
+                      <label for="act" class="form-label"> type:</label>
+                      <select [(ngModel)]="act.type" id="act" class="form-control">
+                        <option value="Moteur"> Moteur</option>
+                        <option value="Pompe"> Pompe</option>
+                        <option value="Eclairage"> Eclairage</option>
+                        <option value="Vantilation"> Vantilation</option>
+                        <option value="Chouffage"> Chouffage</option>
+                      </select>
+                      </div>
+                    
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1">num actionneur</label>
+                        <input type="number" class="form-control" placeholder="email" [(ngModel)]="act.numactionneur" email required name="email" #email="ngModel" ngModel>
+                      </div>
+     
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1">valeur</label>
+                        <input type="number" class="form-control" placeholder="email" [(ngModel)]="act.valeur" email required name="email" #email="ngModel" ngModel>
+                      </div>
+
+                     <div class="mb-3">
+                        <label for="exampleFormControlInput1">Nom D'utilisateur</label>
+                        <input type="text" class="form-control" placeholder="num Utilisateur" [(ngModel)]="act.nomUtilisateur"  required name="numUtilisateur" #numUtilisateur="ngModel" ngModel [disabled]="true">
+                      </div> 
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1">date</label>
+                        <input type="datetime-local" class="form-control" placeholder="email" [(ngModel)]="act.date"  required name="date" #date="ngModel" ngModel>
+                      </div> 
+
+                      <div class="text-center">
+                      <button  class="btn btn-primary" data-bs-dismiss="modal" >save changes </button>
+                      </div>
+                  </form>
+  
+                  
+  
+              </div>
+              <div class="modal-footer">
+                
+                 
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div> 
+      </div>  
+  </div> -->

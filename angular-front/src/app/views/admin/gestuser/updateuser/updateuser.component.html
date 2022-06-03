@@ -1,0 +1,41 @@
+
+
+<br>
+<div  class=" container" style="width: 70%;">
+<table *ngIf="dataObject" class="table align-items-center " >
+    <thead class="table-light align-items-center" >
+        <tr>
+            
+            <th colspan="2" class="text-center">Détails D'utilisateur</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nom</td>
+            <td>{{dataObject.firstname}}</td>
+        </tr>
+        <tr>
+            <td>Prénom</td>
+            <td>{{dataObject.lastname}}</td>
+        </tr>
+
+        <tr>
+            <td>Adresse Email</td>
+            <td>{{dataObject.email}}</td>
+        </tr>
+        <tr>
+            <td>Mot De Passe chiffré</td>
+            <td>{{dataObject.password}}</td>
+        </tr>
+        <tr>
+            <td>Date de création</td>
+            <td>{{dataObject.createdDate| date:'dd , MM , y, HH:mm:ss'}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>

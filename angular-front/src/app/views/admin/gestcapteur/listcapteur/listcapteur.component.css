@@ -1,0 +1,18 @@
+#right { 
+    position:relative;
+    right:0;
+    margin-right: 30px;
+    margin-left: 85%;
+    top:20%;
+    width: 14%;
+    
+    justify-content: space-between;
+  }
+  search-input {
+    float: left;
+    padding: 2px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+  }

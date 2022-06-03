@@ -1,0 +1,614 @@
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a routerLink="/admin/dashboard">Tableau De Bord</a></li>
+                    
+                    <li class="breadcrumb-item active">Tous Les Actionneurs</li>
+                </ol>
+            </div>
+            <h4 class="page-title"> Tous Les Actionneurs  </h4>
+            <!-- Multiple Select -->
+
+            <div class="dropdown ">
+                <a class=" dropdown-toggle arrow-none " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                    aria-expanded="false">
+                    <span class=" dropdown-header noti-title">
+                    <h5 class="text-overflow " style="color: rgba(47, 48, 50, 0.832);"> <i class="dripicons-experiment"></i> Filtrer par <i class="dripicons-chevron-down"></i> </h5>
+                    </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-animated ">
+                    <!-- item-->
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowAll()" value="all"  >Afficher/masquer tous      
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowMoteur()" value="moteur"  >moteur
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowVentilateur()" name="type" value="ventilateur" > ventilateur
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowPompe()" name="type" value="Pompe" > Pompe
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowChouffage()" name="type" value="température" >Chouffage
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowElectrovanne1()" name="type" value="électrovanne 1" > électrovanne 1
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowElectrovanne2()" name="type" value="électrovanne 2" > électrovanne 2 
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowElectrovanne3()" name="type" value="électrovanne 3" > électrovanne 3 
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowElectrovanne4()" name="type" value="électrovanne 4" > électrovanne 4 
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowElectrovanne5()" name="type" value="électrovanne 5" > électrovanne 5 
+                    </div>
+                    <div class=" dropdown-header noti-title">
+                        <input type="checkbox" (click)="toggleShowElectrovanne6()" name="type" value="électrovanne 6" > électrovanne 6 
+                    </div>
+
+                </div>
+            </div>
+        <!-- <input type="checkbox" (click)="toggleShowAll()" value="all" checked >Afficher/masquer tous <br>         
+        <input type="checkbox" (click)="toggleShowMoteur()" value="moteur" checked >moteur
+        <input type="checkbox" (click)="toggleShowVentilateur()" name="type" value="ventilateur" checked> ventilateur
+        <input type="checkbox" (click)="toggleShowPompe()" name="type" value="Pompe" checked> Pompe
+        <input type="checkbox" (click)="toggleShowChouffage()" name="type" value="température" checked>Chouffage
+        <input type="checkbox" (click)="toggleShowElectrovanne1()" name="type" value="électrovanne 1" checked> électrovanne 1
+        <input type="checkbox" (click)="toggleShowElectrovanne2()" name="type" value="électrovanne 2" checked> électrovanne 2 
+        <input type="checkbox" (click)="toggleShowElectrovanne3()" name="type" value="électrovanne 3" checked> électrovanne 3 
+        <input type="checkbox" (click)="toggleShowElectrovanne4()" name="type" value="électrovanne 4" checked> électrovanne 4 
+        <input type="checkbox" (click)="toggleShowElectrovanne5()" name="type" value="électrovanne 5" checked> électrovanne 5 
+        <input type="checkbox" (click)="toggleShowElectrovanne6()" name="type" value="électrovanne 6" checked> électrovanne 6  -->
+        
+
+
+            <!-- <div class="row">
+            <div class="col-2 column">
+
+<select class="select2 form-control select2-multiple" data-toggle="select2" multiple="multiple" data-placeholder="Choose ...">
+    <optgroup label="Alaskan/Hawaiian Time Zone">
+        <option value="AK">Alaska</option>
+        <option value="HI">Hawaii</option>
+    </optgroup>
+    <optgroup label="Pacific Time Zone">
+        <option value="CA">California</option>
+        <option value="NV">Nevada</option>
+        <option value="OR">Oregon</option>
+        <option value="WA">Washington</option>
+    </optgroup>
+    <optgroup label="Mountain Time Zone">
+        <option value="AZ">Arizona</option>
+        <option value="CO">Colorado</option>
+        <option value="ID">Idaho</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NM">New Mexico</option>
+        <option value="ND">North Dakota</option>
+        <option value="UT">Utah</option>
+        <option value="WY">Wyoming</option>
+    </optgroup>
+</select>
+            </div>
+                <div class=" col-2 column">
+              
+<select class="select2 form-control select2-multiple" data-toggle="select2" multiple="multiple" data-placeholder="Choose ...">
+    <optgroup label="Alaskan/Hawaiian Time Zone">
+        <option value="AK">Alaska</option>
+        <option value="HI">Hawaii</option>
+    </optgroup>
+    <optgroup label="Pacific Time Zone">
+        <option value="CA">California</option>
+        <option value="NV">Nevada</option>
+        <option value="OR">Oregon</option>
+        <option value="WA">Washington</option>
+    </optgroup>
+    <optgroup label="Mountain Time Zone">
+        <option value="AZ">Arizona</option>
+        <option value="CO">Colorado</option>
+        <option value="ID">Idaho</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NM">New Mexico</option>
+        <option value="ND">North Dakota</option>
+        <option value="UT">Utah</option>
+        <option value="WY">Wyoming</option>
+    </optgroup>
+</select>
+                </div>
+            
+        </div> -->
+        </div>
+    </div>
+  </div> 
+  <br>
+  <div class="tab-content container" > 
+    <div class="tab-pane show active" id="basic-datatable-preview">
+        <div *ngIf="!isShowAll">
+            <div *ngIf="isShownLumiere">
+        <div class="col-lg-12 " >
+            <div class="card">
+
+           <h4 class="page-title text-center"> Commande de lumière </h4>
+                </div></div>
+                
+           <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                <div class="card-body" >
+                <img src="https://cdn.iconscout.com/icon/free/png-256/lamp-2021445-1709384.png" alt="" class="container" width="150px" height="240px">
+            </div></div></div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body" >
+                        <h4 class="header-title mb-4"> controle</h4>
+                        <br>
+                        <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup">
+                            <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                                On
+                            </mat-button-toggle>
+                            
+                            <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                                Off
+                            </mat-button-toggle>
+                        </mat-button-toggle-group>
+                        <br>
+                        <br>
+                        <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                            <br>
+                            <br>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            </div>
+            <div *ngIf="isShownMoteur">
+      <div class="col-lg-12">
+        <div class="card">
+
+    <h4 class="page-title text-center"> Commande de moteur </h4>
+            </div></div>
+  <div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/104/104943.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body" >
+                    <h4 class="header-title mb-4"> controle</h4>
+                    <br>
+                    <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup">
+                        <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                            On
+                        </mat-button-toggle>
+                        
+                        <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                            Off
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <br>
+                        <br>
+                    <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                        <br>
+                        <br>
+                </div>
+            </div>
+        </div>
+
+  </div>
+            </div>
+            <div *ngIf="isShownChouffage">
+  <div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande de chouffage </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/289/289759.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+            </div>
+            <div *ngIf="isShownVentilateur">
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande de ventillateur </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/1245/1245601.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+            </div>
+            <div *ngIf="isShownPompe">
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande de pompe </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://www.pngitem.com/pimgs/m/32-326728_pump-icon-free-png-and-svg-download-centrifugal.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+</div>
+            </div>
+            <div *ngIf="isShownElectrovanne1">
+
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 1 </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/900/900693.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+            </div>
+<div *ngIf="isShownElectrovanne2">
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 2 </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/900/900693.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div *ngIf="isShownElectrovanne3">
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 3 </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/900/900693.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div *ngIf="isShownElectrovanne4">
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 4 </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/900/900693.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        OFF
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div *ngIf="isShownElectrovanne5">
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 5 </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/900/900693.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div *ngIf="isShownElectrovanne6">
+<div class="col-lg-12 " >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 6 </h4>
+        </div></div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-body" >
+        <img src="https://cdn-icons-png.flaticon.com/512/900/900693.png" alt="" class="container" width="100px" height="240px">
+    </div></div></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> 
+  <div class="tab-content">
+    <div class="tab-pane show active" id="basic-datatable-preview">
+        <div class="d-lg-flex justify-content-between align-items-center">
+            <button (click)="downloadPDF()" type="button"  class="btn btn-outline-primary" > Télécharger en pdf</button>
+    
+          <div class="app-search">
+              
+                  <div class="mb-2 position-relative" >
+                      <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText">
+                      <span class="mdi mdi-magnify search-icon"></span>
+        
+                  </div>
+           </div>
+        </div>
+     
+          <div>
+    
+          <div id="content" #content>
+          <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-bordered">
+            
+            <thead class="table-info">
+                <tr class="text-center">
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Numéro Actionneur</th>
+                    <th>Etat</th>
+                    <th>Nom D'utilisateur</th>
+                    <th>Date</th>
+                 
+                </tr>
+            </thead>
+        
+            <tbody>
+                <ng-container *ngFor="let item of acts | searchFilter: searchText ; let i =n">
+
+                <tr class="text-center" *ngIf="item.nomUtilisateur===username">
+                    <td>{{item.nom}} </td>
+                    <td>{{item.type}} </td>
+                    <td>{{item.numactionneur}} </td>
+                    <td>
+                        <div *ngIf="item.valeur; else nonact">
+                          <div class="alert alert-success" role="alert">
+                            <i class="dripicons-checkmark me-2"></i> <strong>On</strong> 
+                        </div>
+                        </div>
+                  
+                        <ng-template #nonact>
+                          <div class="alert alert-danger" role="alert">
+                            <i class="dripicons-wrong me-2"></i><strong>Off</strong> 
+                        </div>
+                        </ng-template>
+                    </td>
+                    <td>{{item.nomUtilisateur}} </td>
+                    <td>{{item.date | date:'dd , MM , y, HH:mm:ss'}} </td>
+  
+                </tr>
+                </ng-container>
+                </tbody>
+        </table>
+          </div>
+    </div>
+  </div> 

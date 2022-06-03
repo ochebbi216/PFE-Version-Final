@@ -1,0 +1,162 @@
+
+
+
+<!-- start page title -->
+<div class="row">
+  <div class="col-12">
+      <div class="page-title-box">
+          <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a routerLink="admin/dashboard">Tableau De Bord</a></li>
+                  
+                  <li class="breadcrumb-item active">Gestion Des Utilisateurs</li>
+              </ol>
+          </div>
+          <h4 class="page-title"> Liste Des Utilisateurs  </h4>
+      </div>
+  </div>
+</div> 
+
+<div *ngIf="users.length <= 0" class="alert alert-warning text-center container" style="width:95% ;" role="alert">
+  Il n'y a pas encore d'utilisateur !
+</div>
+<div class="tab-content">
+  <div class="tab-pane show active" id="basic-datatable-preview">
+    <button (click)="downloadPDF()" type="button"  class="btn btn-outline-primary" > Télécharger en pdf</button>
+
+      <button class="btn btn-primary col-2 " routerLink="/admin/ajouteruser" id="right" >   Ajouter un utilisateur</button>
+      <div style="padding:10px;"></div>
+      <div id="content" #content>
+      <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-bordered" *ngIf="users.length > 0">
+        <thead class="table-info">
+          <tr class="text-center">
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Adresse Email</th>
+                  <th>Mot De Passe</th>
+                  <th>Activation</th>
+                  <!-- <th>Paiement</th> -->
+                  <th>Options</th>
+
+
+              </tr>
+          </thead>
+      
+          <tbody>
+              <tr *ngFor="let item of users" class="text-center">
+                  <td>{{item.firstname}} </td>
+                  <td>{{item.lastname}} </td>
+                  <td>{{item.email}} </td>
+                  <td>****** </td>
+                  <td>
+                  <div *ngIf="item.activated; else nonact">
+                    <div class="alert alert-success" role="alert">
+                      <i class="dripicons-checkmark me-2"></i> <strong>activé</strong> 
+                  </div>
+                  </div>
+            
+                  <ng-template #nonact>
+                    <div class="alert alert-danger" role="alert">
+                      <i class="dripicons-wrong me-2"></i><strong>non activé</strong> 
+                  </div>
+                  </ng-template>
+                  </td>
+
+                  <!-- <td>
+                    <div *ngIf="item.paied; else nonpay">
+                      <div class="alert alert-success" role="alert">
+                        <i class="dripicons-checkmark me-2"></i> <strong>payé</strong> 
+                    </div>
+                    </div>
+              
+                    <ng-template #nonpay>
+                      <div class="alert alert-danger" role="alert">
+                        <i class="dripicons-wrong me-2"></i><strong>non payé</strong> 
+                    </div>
+                    </ng-template>
+                    </td> -->
+                  <td>
+                    <!-- <button class="btn btn-info m-1 " (click)="getdata(item.firstname,item.lastname,item.email,item.password,item.activated,item.paied,item._id)"  data-bs-toggle="modal" data-bs-target="#login-modal">Modifier</button> -->
+                    <span class="edit" [routerLink]="['/admin/updateuser/', item._id]">
+                      <button type="button" class="btn btn-info m-1">Modifier</button>
+                    </span>
+                    <button class="btn btn-danger m-1 " (click)="delete(item._id)"  >Supprimer</button>   
+                    <button class="btn btn-warning m-1" (click)="details(item._id)"> Détails</button> 
+                  </td>
+
+              </tr>
+             
+              </tbody>
+      </table>
+  </div>
+</div>
+</div> 
+
+<!-- <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    
+                </div>
+
+                <form #f="ngForm" (ngSubmit)="updatenewuser(f)">
+
+                  <div class="mb-3">
+            
+                    <label for="exampleFormControlInput1">Nom</label>
+                    <input type="text" class="form-control" placeholder="firstName" [(ngModel)]="user.firstname" required name="firstname" #firstname="ngModel" ngModel minlength="2" maxlength="20">
+                  </div>
+                 
+                  <div class="mb-3">
+                      <label for="exampleFormControlInput1">Prénom</label>
+                      <input type="text" class="form-control" placeholder="lastname" [(ngModel)]="user.lastname" required name="lastname" #lastname="ngModel" minlength="2" maxlength="20" ngModel>
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1">Adresse Email</label>
+                      <input type="email" class="form-control" placeholder="email" [(ngModel)]="user.email" email required name="email" #email="ngModel" ngModel>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1">Mot De Passe</label>
+                      <input type="password" class="form-control" placeholder="password" [(ngModel)]="user.password" required name="password" #password="ngModel" ngModel>
+
+                    </div> 
+
+                    <div class="mb-3">
+                      <label for="act" class="form-label"> Activation:</label>
+                      <select [(ngModel)]="user.activated" id="act" class="form-control">
+                        <option value="" disabled> Choisi..</option>
+                        <option value="activé"> Activé</option>
+                        <option value="désactivé"> Désactiver</option>
+              
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="act" class="form-label"> Paiement:</label>
+                      <select [(ngModel)]="user.paied" id="act" class="form-control">
+                        <option value="" disabled> Choisi..</option>
+                        <option value="payé"> Payé</option>
+                        <option value="non payé"> Non Payé</option>
+              
+                      </select>
+                    </div>
+
+                    <div class="text-center">
+                    <button  class="btn btn-primary" data-bs-dismiss="modal" >Enregister </button>
+                    </div>
+                </form>
+
+                
+
+            </div>
+            <div class="modal-footer">
+              
+               
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div> 
+    </div>  
+</div> -->

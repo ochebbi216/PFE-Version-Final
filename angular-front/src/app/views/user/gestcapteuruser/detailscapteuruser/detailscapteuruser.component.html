@@ -1,0 +1,46 @@
+<br>
+<div  class=" container" style="width: 70%;">
+<table *ngIf="dataObject" class="table align-items-center " >
+    <thead class="table-light align-items-center" >
+        <tr>
+            
+            <th colspan="2" class="text-center">Détails De Capteur</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nom</td>
+            <td>{{dataObject.nom}}</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>{{dataObject.type}}</td>
+        </tr>
+        <tr>
+            <td>Numero Capteur</td>
+            <td>{{dataObject.numCapteur}}</td>
+        </tr>
+        <tr>
+            <td>valeur</td>
+            <td>{{dataObject.valeur}}</td>
+        </tr>
+        <tr>
+            <td>Nom D'utilisateur</td>
+            <td>{{dataObject.nomUtilisateur}}</td>
+        </tr>
+        <tr>
+            <td>Nom Du Passerelle</td>
+            <td>{{dataObject.nomPasserelle}}</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>{{dataObject.date| date:'dd , MM , y, HH:mm:ss'}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>

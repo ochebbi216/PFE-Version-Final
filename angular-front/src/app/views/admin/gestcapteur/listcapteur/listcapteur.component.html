@@ -1,0 +1,133 @@
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a routerLink="admin/dashboard">Tableau De Bord</a></li>
+                    
+                    <li class="breadcrumb-item active">Gestion Des Capteurs</li>
+                </ol>
+            </div>
+            <h4 class="page-title"> Liste Des Capteurs  </h4>
+        </div>
+    </div>
+  </div> 
+  
+
+
+  <div *ngIf="capteurs.length <= 0" class="alert alert-warning text-center container" style="width:95% ;" role="alert">
+    Il n'y a pas encore de capteur ajouté !
+</div>
+  <div class="tab-content">
+    <div class="tab-pane show active" id="basic-datatable-preview">
+      <button (click)="downloadPDF()" type="button"  class="btn btn-outline-primary" > Télécharger en pdf</button>
+
+        <button class="btn btn-primary col-2 " routerLink="/admin/ajoutercapteur" id="right" >   Ajouter un capteur</button>
+      <div style="padding:10px;"></div>
+      <div id="content" #content>
+
+        <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-bordered" *ngIf="capteurs.length > 0">
+            <thead class="table-info">
+                <tr class="text-center">
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Numero Capteur</th>
+                    <th>valeur</th>
+                    <th>Nom D'utilisateur</th>
+                    <th>Nom De Passerelle</th>
+                    <th>Date</th>
+                  <!-- <div style="margin-left: 1%;" > -->
+                    <th>Options</th>
+                
+                </tr>
+            </thead>
+        
+        
+            <tbody>
+                <tr class="text-center" *ngFor="let item of capteurs">
+                    <td>{{item.nom}} </td>
+                    <td>{{item.type}} </td>
+                    <td>{{item.numCapteur}} </td>
+                    <td>{{item.valeur}} </td>
+                    <td>{{item.nomUtilisateur}} </td>
+                    <td>{{item.nomPasserelle}} </td>
+                    <td>{{item.date| date:'dd , MM , y, HH:mm:ss'}} </td>
+                    <td class="text-center">
+                      <!-- <button class="btn btn-info m-1 " (click)="update(item._id)"> Modifier</button> -->
+                      <span class="edit" [routerLink]="['/admin/updatecapteur/', item._id]">
+                        <button type="button" class="btn btn-info m-1">Modifier</button>
+                      </span>
+                      <button class="btn btn-danger m-1 " (click)="delete(item._id)"  >Supprimer</button>   
+                      <button class="btn btn-warning m-1" (click)="details(item._id)"> Détails</button>  
+                       
+                    </td>
+                  
+                </tr>
+               
+                </tbody>
+        </table>
+      </div>
+    </div>
+  </div> 
+  
+  <!-- <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <div class="text-center mt-2 mb-4">
+                      
+                  </div>
+                  <form #f="ngForm" (ngSubmit)="updatenewuser(f)">
+  
+                    <div class="mb-3">
+              
+                      <label for="exampleFormControlInput1">Nom</label>
+                      <input type="text" class="form-control"  [(ngModel)]="capteur.nom"  name="Nom" #Nom="ngModel" ngModel minlength="2" maxlength="20">
+                    </div>
+                   
+                    <div class="mb-3">
+                      <label for="cap" class="form-label"> Type:</label>
+                      <select id="cap" class="form-control" [(ngModel)]="capteur.type">   
+                      <option value="Température">Température</option>
+                      <option value="Humidité">Humidité</option>
+                      <option value="Vent">Vent</option>
+                      <option value="Pression">Pression</option>
+                      <option value="Lumière">Lumière</option>
+                      <option value="Sol">Sol</option>
+                    </select>
+                      </div>
+                    
+                      <div class="mb-3">
+
+                        <label for="exampleFormControlInput1">Numero Capteur</label>
+                        <input type="number" class="form-control" [(ngModel)]="capteur.numCapteur"  name="Numero Capteur" #Numero Capteur="ngModel" ngModel>
+                      </div>
+     
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1">Valeur</label>
+                        <input type="number" class="form-control"  [(ngModel)]="capteur.valeur"  name="Valeur" #Valeur="ngModel" ngModel>
+  
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1">Nom D'utilisateur</label>
+                        <input type="text" class="form-control"  [(ngModel)]="capteur.nomUtilisateur"  name="Num Utilisateur" #Num Utilisateur="ngModel"  ngModel>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1">Date</label>
+                        <input type="datetime-local" class="form-control"  [(ngModel)]="capteur.date" name="date" #date="ngModel"  ngModel>
+                      </div>
+
+                      <div class="text-center">
+                      <button  class="btn btn-primary" data-bs-dismiss="modal" >Enregister </button>
+                      </div>
+                  </form>
+  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              </div>
+          </div> 
+      </div>  
+  </div> -->

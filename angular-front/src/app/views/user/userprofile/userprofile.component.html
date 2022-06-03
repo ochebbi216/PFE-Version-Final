@@ -1,0 +1,80 @@
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12 col-md-12">
+                <div class="card user-card-full">
+
+                    <div class="row m-l-0 m-r-0">
+
+                        <div class="col-sm-3 bg-c-lite-green user-profile " >
+                            <div class="card-block text-center text-white">
+
+                                <div class="m-b-25 rounded-circle" >                                
+                                     <div *ngIf="image; else loggedOut">
+                                    <img src="{{image}}" width="70%" height="70%" class="rounded-circle"/>                                  
+                                </div>
+                                  
+                                  <ng-template #loggedOut>
+                                    <img src="assets\admin\images\images.png" width="70%" height="70%" class="rounded-circle"/>
+                                  </ng-template> </div>
+      
+                            </div>
+        
+                        </div>
+                        <div style="padding: 3px;"></div>
+                        <div class="mb-2" >
+                            
+                            <button style="float: left;margin-left: 1.5%;" type="button" class="btn btn-outline-success" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-upload me-1"></i> choisir image </button>
+                            <div class="dropdown-menu">
+                                <!-- <input  (change)="selectImage($event)" placeholder="image" type="file" class="from-control m-2"> 
+                                <button  (click)="ajouter()"  class="btn btn-dark m-2 from-control"     > enregitrer  </button> -->
+                                <input   placeholder="image" type="file" class="from-control m-2"> 
+                                <button    class="btn btn-dark m-2 from-control"> enregitrer  </button>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-10 ">
+                            <div class="card-block">
+                                <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+                                <h6 class=" b-b-default f-w-400">Information</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Nom</p>
+                                        <input class="text-dark f-w-400" type="text" formControlName="lastname" />
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Nom de famille</p>
+                                        <input class="text-dark f-w-400" type="text" formControlName="firstname" />
+                                    </div>
+                                </div>
+                                <h6 class=" b-b-default f-w-600"></h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                         <p class="m-b-10 f-w-600">Email</p>
+                                         <input class="text-dark f-w-400" type="text" formControlName="email" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Role</p>
+                                        <h6 class="text-muted f-w-400" *ngIf="!ad" >utilisateur</h6>
+                                    </div>
+                                </div>                                
+                                
+                                <h6 class="  b-b-default f-w-600"></h6>
+                                <div class="row">
+                                    <p class="m-b-10 f-w-600">Crée on</p>
+                                    <h6 class="text-muted f-w-400" >{{createdDate| date:'dd , MM , y, HH:mm:ss'}}</h6>
+                                </div>   
+                                <br>
+                                <button type="submit" class="btn btn-success rounded-pill text-center"  > enregitrer changement</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+

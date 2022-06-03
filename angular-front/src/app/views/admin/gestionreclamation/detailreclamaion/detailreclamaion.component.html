@@ -1,0 +1,44 @@
+<br>
+<div  class=" container" style="width: 70%;">
+<table class="table align-items-center " >
+    <thead class="table-light align-items-center" >
+        <tr>
+            
+            <th colspan="2" class="text-center">Détails De Réclamation</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Objet</td>
+            <td>{{dataObject.objet}}</td>
+        </tr>
+        <tr>
+            <td>Nom Complet</td>
+            <td>{{dataObject.nomComplet}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{dataObject.email}}</td>
+        </tr>
+        <tr>
+            <td>Numéro de télèphone</td>
+            <td>{{dataObject.numtel}}</td>
+        </tr>
+        <tr>
+            <td>Demande</td>
+            <td>{{dataObject.demande}}</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>{{dataObject.Date| date:'dd , MM , y, HH:mm:ss'}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>
+
+

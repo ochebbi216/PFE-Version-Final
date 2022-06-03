@@ -1,0 +1,100 @@
+<div class="card-body p-4">
+                        
+    <div class="text-center w-75 m-auto">
+        <h4 class="text-dark-50 text-center pb-0 fw-bold">Ajouter actionneur</h4>
+        
+    </div>
+
+    
+    <div style="width: 500px; margin: auto;">
+        <div class="submit-form">
+            <!-- <div *ngIf="!submitted"> -->
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Nom  </label>
+            <input [(ngModel)]="actionneur.nom" class="form-control" type="text" id="firstname" name="nom" #nom="ngModel" required >
+            <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                <div *ngIf="nom.errors.required">nom est obligatoire.</div>
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="act" class="form-label"> Type</label>
+            <select [(ngModel)]="actionneur.type" id="act" class="form-control" name="type" #type="ngModel" required>
+              <option value="Moteur"> Moteur</option>
+              <option value="Pompe"> Pompe</option>
+              <option value="Eclairage"> Eclairage</option>
+              <option value="Vantilation"> Vantilation</option>
+              <option value="Chouffage"> Chouffage</option>
+            </select>
+            <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                <div *ngIf="type.errors.required">type est obligatoire.</div>
+              </div>
+            <!-- <label for="lastname" class="form-label">type</label>
+            <input [(ngModel)]="actionneur.type" type="text" id="lastname" class="form-control" > -->
+           
+        </div>
+        <div class="mb-3">
+            
+            <label for="email" class="form-label">Numero actionneur</label>
+            <input [(ngModel)]="actionneur.numactionneur" type="number" id="email" class="form-control" name="numactionneur" #numactionneur="ngModel" required  >
+            <div *ngIf="numactionneur.invalid && (numactionneur.dirty || numactionneur.touched ) " class="alert alert-danger">
+                <div *ngIf="numactionneur.errors.required">numéro actionneur est obligatoire.</div>
+              </div>
+              <div class="alert alert-danger" *ngIf="!valide">Le numéro de l'actionneur a toujours été unique. </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="inputPassword3">Etat</label>
+                <select
+                  class="custom-select form-control"
+                  [(ngModel)]="actionneur.valeur"
+                  formControlName="valeur"
+                  
+                >
+                  <option value="" disabled>Choisi...</option>
+                  <option value="true">allumé</option>
+                  <option value="false">éteindre</option>
+                </select>
+     
+              </div>
+            <!-- <label for="password" class="form-label">Valeur</label>
+            <input [(ngModel)]="actionneur.valeur" type="number" id="password" class="form-control" name="valeur" #valeur="ngModel" required> -->
+
+        </div>
+        <div class="mb-3">
+            
+            <label for="5" class="form-label">Nom D'Utilisateur</label>
+            <input [(ngModel)]="actionneur.nomUtilisateur" type="text" id="5" class="form-control" name="nomUtilisateur" #nomUtilisateur="ngModel" required  >
+            <div *ngIf="nomUtilisateur.invalid && (nomUtilisateur.dirty || nomUtilisateur.touched)" class="alert alert-danger">
+                <div *ngIf="nomUtilisateur.errors.required">valeur est obligatoire.</div>
+              </div>
+           
+        </div>
+        <div class="mb-3">
+            
+            <label for="5" class="form-label">Nom De Passerelle</label>
+            <input [(ngModel)]="actionneur.nomPasserelle" type="text" id="5" class="form-control" name="nomPasserelle" #nomPasserelle="ngModel" required  >
+            <div *ngIf="nomPasserelle.invalid && (nomPasserelle.dirty || nomPasserelle.touched)" class="alert alert-danger">
+                <div *ngIf="nomPasserelle.errors.required">valeur est obligatoire.</div>
+              </div>
+           
+        </div>
+        <!-- <div class="mb-3">
+            
+            <label for="6" class="form-label">date</label>
+            <input [(ngModel)]="actionneur.date" type="datetime-local" id="6" class="form-control" >
+           
+        </div> -->
+        <div class="mb-3 mb-0 text-center">
+            <button (click)="create()" class="btn btn-primary" > Ajouter un actionneur </button>
+        </div>
+        
+        <!-- </div> -->
+        <!-- <div *ngIf="submitted" style="margin-left: 55px;">
+            <h3>actionneur créé avec succès !</h3>
+            <button class="btn btn-success" (click)="newProduct()">Créer un nouveau actionneur</button>
+            <button class="btn btn-primary" style="margin-left: 15px;"  routerLink="/admin/listactionneur" > retour a la list des actionneur </button>
+          </div> -->
+    </div>
+    </div>
+</div>

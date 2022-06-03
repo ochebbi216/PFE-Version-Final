@@ -1,0 +1,89 @@
+<div class="card-body p-4">
+                        
+    <div class="text-center w-75 m-auto">
+        <h4 class="text-dark-50 text-center pb-0 fw-bold">Ajouter capteur</h4>
+        
+    </div>
+
+    
+    <div style="width: 500px; margin: auto;">
+        <div class="submit-form">
+            
+        <div class="mb-3">
+            <label for="1" class="form-label">Nom  </label>
+            <input [(ngModel)]="capteur.nom" class="form-control" type="text" id="1"  name="nom" #nom="ngModel" required >
+            <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                <div *ngIf="nom.errors.required">nom est obligatoire.</div>
+              </div>
+        </div>
+
+        <div class="mb-3">
+            
+            <label for="cap" class="form-label"> Type:</label>
+            <select id="cap" class="form-control" [(ngModel)]="capteur.type" name="type" #type="ngModel" required>   
+            <option value="Température">Température</option>
+            <option value="Humidité">Humidité</option>
+            <option value="Vent">Vent</option>
+            <option value="Pression">Pression</option>
+            <option value="Lumière">Lumière</option>
+            <option value="Sol">Sol</option>
+          </select>           
+          <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+            <div *ngIf="type.errors.required">type est obligatoire.</div>
+          </div>
+        </div>
+        <div class="mb-3">
+            
+            <label for="3" class="form-label">Numero Capteur</label>
+            <input [(ngModel)]="capteur.numCapteur" type="number" id="3" class="form-control"  name="numCapteur" #numCapteur="ngModel" required>
+            <div *ngIf="numCapteur.invalid && (numCapteur.dirty || numCapteur.touched ) " class="alert alert-danger">
+                <div *ngIf="numCapteur.errors.required">numéro actionneur est obligatoire.</div>
+              </div>
+              <div class="alert alert-danger" *ngIf="!valide">Le numéro de l'actionneur a toujours été unique. </div>
+
+        </div>
+        <div class="mb-3">
+            
+            <label for="4" class="form-label">Valeur</label>
+            <input [(ngModel)]="capteur.valeur" type="number" id="4" class="form-control"name="valeur" #valeur="ngModel" required  >
+            <div *ngIf="valeur.invalid && (valeur.dirty || valeur.touched)" class="alert alert-danger">
+                <div *ngIf="valeur.errors.required">valeur est obligatoire.</div>
+              </div>
+
+           
+        </div>
+        <div class="mb-3">
+            
+            <label for="5" class="form-label">Nom De Passerelle</label>
+            <input [(ngModel)]="capteur.nomPasserelle" type="text" id="5" class="form-control" name="nomPasserelle" #nomPasserelle="ngModel" required  >
+            <div *ngIf="nomPasserelle.invalid && (nomPasserelle.dirty || nomPasserelle.touched)" class="alert alert-danger">
+                <div *ngIf="nomPasserelle.errors.required">valeur est obligatoire.</div>
+              </div>
+           
+        </div>
+        <!-- <div class="mb-3">
+            
+            <label for="5" class="form-label">Nom D'utilisateur</label>
+            <input [(ngModel)]="capteur.nomUtilisateur" type="text" id="5" class="form-control" >
+           
+        </div> -->
+        <!-- <div class="mb-3">
+            
+            <label for="date" class="form-label">Date</label>
+            <input [(ngModel)]="capteur.date " type="datetime-local" id="date" class="form-control" >
+           
+        </div> -->
+        <div class="mb-3 mb-0 text-center">
+            <button (click)="create()" class="btn btn-primary" > Ajouter </button>
+        </div>
+        
+        <!-- <div *ngIf="submitted" style="margin-left: 55px;">
+            <h3>You successfully created a user!</h3>
+            <button class="btn btn-success" (click)="newProduct()">crée un nouveau user</button>
+            <button class="btn btn-primary" style="margin-left: 15px;"  routerLink="/user/listcapteur" > retour a la list des capteurs </button>
+          </div> -->
+    </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-employee">
+      <!-- form card register -->
+      <div class="card card-outline-secondary">
+        <div class="card-header">
+          <h3 class="mb-0 text-center">Modifier Capteur</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            
+            <div class="form-group mb-3">
+              <label for="inputName">Objet De Réclamation</label>
+              <input class="form-control" type="text" formControlName="objet" />
+              <!-- <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['nom'].errors?.['required']"
+              >
+                Name is required.
+              </div> -->
+            </div>
+  
+            <div class="form-group mb-3">
+              <label for="inputVerify3">Nom Complète</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="nomComplet"
+              />
+              <!-- error -->
+              <!-- <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['numCapteur'].errors?.['required']"
+              >
+                Enter your numCapteur.
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['numCapteur'].errors?.['pattern']"
+              >
+                Enter Numbers Only
+              </div> -->
+            </div>
+            <div class="form-group mb-3">
+                <label for="inputVerify3">Email</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="email"
+                />
+                <!-- error -->
+                <!-- <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['valeur'].errors?.['required']"
+                >
+                  Enter your valeur.
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['valeur'].errors?.['pattern']"
+                >
+                  Enter Numbers Only
+                </div> -->
+                <div class="form-group mb-3">
+                    <label for="inputName">Numéro De Téléphone</label>
+                    <input class="form-control" type="text" formControlName="numtel" />
+                    <!-- <div
+                      class="invalid-feedback"
+                      *ngIf="submitted && myForm['nom'].errors?.['required']"
+                    >
+                      Name is required.
+                    </div> -->
+                  </div>
+                  
+              </div>
+              <div class="form-group mb-3">
+                <label for="inputName">Demande de la réclamation</label>
+                <textarea class="form-control" type="text" formControlName="demande" ></textarea>
+                <!-- <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['nomUtilisateur'].errors?.['required']"
+                >
+                  Nameuser is required.
+                </div> -->
+              </div>
+            <div class="form-group mb-3 text-center">
+              <button class="btn btn-success" type="submit">
+                Enregister
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- form  -->
+    </div>
+  </div>
+  

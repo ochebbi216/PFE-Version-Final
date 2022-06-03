@@ -1,0 +1,130 @@
+<!-- 
+<div class="container">
+
+
+    <div   class="col-6 mx-auto mt-5" >
+        <div   class="row"> 
+          <b> <h2> Ajouter une réclamation </h2> </b> 
+            <input  [(ngModel)]="reclamation.objet" placeholder="Sujet" type="text" class="from-control m-2">
+            <input [(ngModel)]="reclamation.nom" placeholder="Nom" type="text" class="from-control m-2">
+           
+            <input [(ngModel)]="reclamation.prenom" placeholder="Prenom" type="text" class="from-control m-2">
+            <input [(ngModel)]="reclamation.email" placeholder="Adresse email" type="text" class="from-control m-2">
+            <input [(ngModel)]="reclamation.numtel" placeholder="Numero de telephone" type="text" class="from-control m-2">
+            <input [(ngModel)]="reclamation.demande" placeholder="Description de la demande" type="text" class="from-control m-2">
+            <button  (click)="create()"  class="btn btn-dark m-2 from-control"     > Soumettre  </button>
+
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+
+<
+ -->
+ <div style="padding:1% ;"></div>
+ <div class="container text-center" style="width:80% ;">
+ <p>Cher Client, Chère Cliente,
+    Merci de remplir la demande de retour ci-dessous.  Toutes les demandes sont soumises à analyse et approbation.
+    Après réception des informations suivantes, nous analyserons votre demande et y répondrons en conséquence.</p>
+ </div>
+ <div class="card-body p-4">
+                        
+    <div class="text-center w-75 m-auto">
+        <h3 style="color:#0000ff" class="text-dark-50 text-center pb-0 fw-bold">Formulaire de réclamation</h3>
+        
+    </div>
+
+    
+    <div style="width: 500px; margin: auto;">
+        <div class="submit-form">
+            <div >
+        <div class="mb-3">
+            <label for="1" class="form-label">Objet de la demande</label>
+            <input [(ngModel)]="reclamation.objet" class="form-control" type="text" id="1"  name="nom" #nom="ngModel" required >
+           
+                <!-- <div *ngIf="objet.errors.required">nom est obligatoire.</div> -->
+              </div>
+        </div>
+
+        <div class="mb-3">
+            
+            <label for="cap" class="form-label"> Nom Complet</label>
+            <input id="cap" class="form-control" [(ngModel)]="reclamation.nomComplet" name="nom" #type="ngModel" required>   
+            <!-- <option value="Température">Température</option>
+            <option value="Humidité">Humidité</option>
+            <option value="Vent">Vent</option>
+            <option value="Pression">Pression</option>
+            <option value="Lumière">Lumière</option>
+            <option value="Sol">Sol</option> -->
+          <!-- </select>            -->
+          
+        </div>
+        <!-- <div class="mb-3">
+        <label for="cap" class="form-label"> Prénom</label>
+        <input id="cap" class="form-control" [(ngModel)]="reclamation.prenom" name="nom" #type="ngModel" required>   
+        </div> -->
+        <div class="mb-3">
+            
+            <label for="3" class="form-label">Adresse email</label>
+            <input [(ngModel)]="reclamation.email" type="text" id="3" class="form-control"  name="numCapteur" #numCapteur="ngModel" >
+            <!-- <div *ngIf="numCapteur.invalid && (numCapteur.dirty || numCapteur.touched ) " class="alert alert-danger">
+                <div *ngIf="numCapteur.errors.required">numéro actionneur est obligatoire.</div>
+              </div> -->
+              <!-- <div class="alert alert-danger" *ngIf="!valide">Le numéro de l'actionneur a toujours été unique. </div> -->
+
+        </div>
+        <div class="mb-3">
+            
+            <label for="4" class="form-label">Numero de télèphone</label>
+            <input [(ngModel)]="reclamation.numtel" type="text" id="3" class="form-control"  name="numCapteur" #numCapteur="ngModel" >
+        
+            <!-- <input [(ngModel)]="capteur.valeur" type="number" id="4" class="form-control"name="valeur" #valeur="ngModel" required  >
+            <div *ngIf="valeur.invalid && (valeur.dirty || valeur.touched)" class="alert alert-danger">
+                <div *ngIf="valeur.errors.required">valeur est obligatoire.</div> -->
+              </div>
+
+           
+        </div>
+
+        <div class="mb-3">
+            
+            <label for="4" class="form-label">Description de la demande</label>
+            <textarea [(ngModel)]="reclamation.demande" type="text" id="3" class="form-control"  name="numCapteur" #numCapteur="ngModel" ></textarea>
+        
+        </div>
+        <!-- <div class="mb-3">
+            
+            <label for="4" class="form-label">Date</label>
+            <input [(ngModel)]="date.demande" type="text" id="3" class="form-control"  name="numCapteur" #numCapteur="ngModel" >
+        
+        </div> -->
+        <!-- <div class="mb-3">
+            
+            <label for="5" class="form-label">Nom D'utilisateur</label>
+            <input [(ngModel)]="capteur.nomUtilisateur" type="text" id="5" class="form-control" >
+           
+        </div> -->
+        <!-- <div class="mb-3">
+            
+            <label for="date" class="form-label">Date</label>
+            <input [(ngModel)]="capteur.date " type="datetime-local" id="date" class="form-control" >
+           
+        </div> -->
+        <div class="mb-3 mb-0 text-center">
+            <button (click)="create()" class="btn btn-primary"  routerLink="/user/listedesreclamations" >Soumettre </button>
+        </div>
+        </div>
+        <!-- <div  style="margin-left: 55px;">
+            <h3>You successfully created a user!</h3>
+            <button class="btn btn-success" (click)="newProduct()">crée un nouveau user</button>
+            <button class="btn btn-primary" style="margin-left: 15px;"  routerLink="/user/listcapteur" > retour a la list des capteurs </button>
+          </div> -->
+    </div>
+  
+
+

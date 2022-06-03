@@ -1,0 +1,380 @@
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a routerLink="/admin/dashboard">Tableau De Bord</a></li>
+                    
+                    <li class="breadcrumb-item active">Commande À Distance </li>
+                </ol>
+            </div>
+            <h4 class="page-title"> Commande À Distance </h4>
+        </div>
+    </div>
+  </div> 
+
+  <div class="tab-content">
+    <div class="tab-pane show active" id="basic-datatable-preview">
+        <div class="col-lg-12 container" >
+            <div class="card">
+
+        <h4 class="page-title text-center"> Commande de lumière </h4>
+                </div></div>
+      <div class="row">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body" >
+                        <h4 class="header-title mb-4"> controle</h4>
+                        <br>
+                        <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup">
+                            <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                                On
+                            </mat-button-toggle>
+                            
+                            <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                                Off
+                            </mat-button-toggle>
+                        </mat-button-toggle-group>
+                        <br>
+                            <br>
+                        <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                            <br>
+                            <br>
+                    </div>
+                </div>
+            </div>
+                <div class="col-lg-3">
+
+                </div>
+
+      </div>
+
+      <div class="col-lg-12 " >
+        <div class="card">
+
+    <h4 class="page-title text-center"> Commande de moteur </h4>
+            </div></div>
+  <div class="row">
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body" >
+                    <h4 class="header-title mb-4"> controle</h4>
+                    <br>
+                    <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup">
+                        <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                            On
+                        </mat-button-toggle>
+                        
+                        <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                            Off
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <br>
+                        <br>
+                    <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                        <br>
+                        <br>
+                </div>
+            </div>
+        </div>
+
+
+  </div>
+  <div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande de chouffage </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+        <div class="col-lg-3">
+
+
+
+
+
+        </div>
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande de ventillateur </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande de pompe </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 1 </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 2 </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 3 </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 4 </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        OFF
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 5 </h4>
+        </div></div>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-lg-12 container" >
+    <div class="card">
+
+<h4 class="page-title text-center"> Commande d'électrovanne 6 </h4>
+        </div></div>
+<div class="row">
+
+    <div class="form-label mb-4">
+        <div class="card mb-4">
+            <div class="card-body mb-4" >
+                <h4 class="header-title mb-4"> controle</h4>
+                <br>
+                <mat-button-toggle-group class="text-center container justify-content-center " type="checkbox" style="border:none ;"  #toggleBtn="matButtonToggleGroup" >
+                    <mat-button-toggle class="btn btn-success rounded-pill" value="On" checked>
+                        On
+                    </mat-button-toggle>
+                    
+                    <mat-button-toggle style="margin-left: 25px;border-left-width: 0.5px;border-left-color: rgba(247, 4, 4, 0.884); " class="btn btn-danger rounded-pill" value="Off" >
+                        Off
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
+                    <br>
+                <p class="text-center"> Statut actuel : <b>{{ toggleBtn.value }}</b></p>
+                    <br>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+    </div>
+</div>
+

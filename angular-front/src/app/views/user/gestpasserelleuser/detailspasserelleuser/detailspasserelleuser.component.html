@@ -1,0 +1,49 @@
+
+<br>
+<div  class=" container" style="width: 70%;">
+<table *ngIf="dataObject" class="table align-items-center " >
+    <thead class="table-light align-items-center" >
+        <tr>
+            
+            <th colspan="2" class="text-center">Détails De Passerelle</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nom</td>
+            <td>{{dataObject.Nom}}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>{{dataObject.Description}}</td>
+        </tr>
+        <tr>
+            <td>NumeroUtilisateur</td>
+            <td>{{dataObject.nomUtilisateur}}</td>
+        </tr>
+        <tr>
+            <td>GPSLong</td>
+            <td>{{dataObject.GPSLong}}</td>
+        </tr>
+        <tr>
+            <td>GPSLat</td>
+            <td>{{dataObject.GPSLat}}</td>
+        </tr>
+
+        <tr>
+            <td>Date et heure</td>
+            <td>{{dataObject.Date| date:'dd , MM , y, HH:mm:ss'}}</td>
+        </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<div class="full" id="map"></div>
+<!-- <div class="map" #mapElement></div> -->
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>
+
+

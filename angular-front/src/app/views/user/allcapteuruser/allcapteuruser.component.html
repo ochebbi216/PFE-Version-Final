@@ -1,0 +1,154 @@
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a routerLink="/user/home">Tableau De Bord</a></li>
+                    
+                    <li class="breadcrumb-item active">Tous Les Capteurs</li>
+                </ol>
+            </div>
+            <h4 class="page-title"> Tous Les Capteurs  </h4>
+        </div>
+    </div>
+  </div> 
+  
+  
+  <div class="tab-content">
+    <div class="tab-pane show active" id="basic-datatable-preview">
+        <div class="row">
+            <div class="col-xl-7">
+                <div class="card">
+                    <div class="card-body" style="height: 302px;">
+                        <h4 class="header-title mb-4"></h4>
+                        <!-- <div id="chart-div"></div> -->
+                        <google-chart [data]="Linechart"></google-chart>
+                    </div>
+                    
+                </div>
+              
+            </div>
+            <div class="col-xl-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div style="margin-left: 9%;" >
+                        <google-chart [data]="Gauge1"></google-chart>
+                        <!-- <div id="chart_div" style="width: 320px; height: 119px;" ></div> -->
+                        <google-chart [data]="Gauge2"></google-chart>
+                        <!-- <div id="chartdiv"style="width: 320px; height: 119px;" ></div>  -->
+                        
+                        </div>
+                        
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+            
+            
+            <!-- end col -->
+    
+        </div>
+        <div class="row">
+          <div class="col-xl-6">
+              <div class="card">
+                  <div class="card-body" style="height: 302px;">
+                      <h4 class="header-title mb-4"></h4>
+                      <!-- <div id="chart-div"></div> -->
+                      <google-chart [data]="Linechart2"></google-chart>
+                  </div>
+                  
+              </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body" style="height: 302px;">
+                    <h4 class="header-title mb-4"></h4>
+                    <!-- <div id="chart-div"></div> -->
+                    <google-chart [data]="Linechart3"></google-chart>
+                </div>
+                
+            </div>
+        </div>
+    
+    
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body" style="height: 302px;">
+                        <h4 class="header-title mb-4"></h4>
+                        <!-- <div id="chart-div"></div> -->
+                        <google-chart [data]="Linechart4"></google-chart>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="card">
+                  <div class="card-body" style="height: 302px;">
+                      <h4 class="header-title mb-4"></h4>
+                      <!-- <div id="chart-div"></div> -->
+                      <google-chart [data]="Linechart5"></google-chart>
+                  </div>
+                  
+              </div>
+          </div>
+      
+      
+          </div> 
+          <div class="d-lg-flex justify-content-between align-items-center">
+            <button (click)="downloadPDF()" type="button"  class="btn btn-outline-primary" > Télécharger en pdf</button>
+    
+          <div class="app-search">
+              
+                  <div class="mb-2 position-relative" >
+                      <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText">
+                      <span class="mdi mdi-magnify search-icon"></span>
+        
+                  </div>
+           </div>
+        </div>
+     
+          <div>
+    
+          <div id="content" #content>
+
+      
+        <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-bordered">
+            
+            <thead class="table-info">
+                <tr class="text-center">
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Numero Capteur</th>
+                    <th>valeur</th>
+                    <th>Nom D'utilisateur</th>
+                    <th>Date</th>
+                  <!-- <div style="margin-left: 1%;" > -->
+                    
+                
+                </tr>
+            </thead>
+        
+        
+            <tbody>
+                <ng-container *ngFor="let item of users | searchFilter: searchText ; let i =index">
+
+                    <tr class="text-center" *ngIf="item.nomUtilisateur===username">
+                    <td>{{item.nom}} </td>
+                    <td>{{item.type}} </td>
+                    <td>{{item.numCapteur}} </td>
+                    <td>{{item.valeur}} </td>
+                    <td>{{item.nomUtilisateur}} </td>
+                    <td>{{item.date| date:'dd , MM , y, HH:mm:ss'}} </td>
+                    
+                  
+                </tr>
+                </ng-container>
+                </tbody>
+        </table>
+          </div>
+    </div>
+  </div> 
+  
+  

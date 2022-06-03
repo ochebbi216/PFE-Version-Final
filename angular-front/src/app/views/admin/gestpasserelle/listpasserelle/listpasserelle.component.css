@@ -1,0 +1,10 @@
+#right { 
+    position:relative;
+    right:0;
+    margin-right: 30px;
+    margin-left: 85%;
+    top:20%;
+    width: 14%;
+    
+    justify-content: space-between;
+  }
